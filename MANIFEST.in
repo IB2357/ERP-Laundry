@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include laundry *.css
+recursive-include laundry *.csv
+recursive-include laundry *.html
+recursive-include laundry *.ico
+recursive-include laundry *.js
+recursive-include laundry *.json
+recursive-include laundry *.md
+recursive-include laundry *.png
+recursive-include laundry *.py
+recursive-include laundry *.svg
+recursive-include laundry *.txt
+recursive-exclude laundry *.pyc
