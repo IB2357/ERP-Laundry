@@ -1,0 +1,75 @@
+{
+ "charts": [
+  {
+   "chart_name": "Orders Activity",
+   "label": "Activity"
+  }
+ ],
+ "content": "[{\"id\":\"fUbrc_emSi\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Orders Control</span>\",\"col\":12}},{\"id\":\"DvfelT3_Bs\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Activity\",\"col\":12}},{\"id\":\"oFiC8je84f\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"All Orders\",\"col\":3}},{\"id\":\"sI0Iql45Ec\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Today's\",\"col\":3}},{\"id\":\"QelE4N5d1P\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Not Delivered Orders\",\"col\":3}},{\"id\":\"Y-JqtYVDPU\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"To Deliver\",\"col\":3}},{\"id\":\"lDZXUbuDaB\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"This Month failures\",\"col\":4}},{\"id\":\"L8QVBHtnmL\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Refunded and Compensation Done\",\"col\":8}}]",
+ "creation": "2023-07-26 20:14:01.918035",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "projects",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "Orders Control",
+ "links": [],
+ "modified": "2023-08-04 02:31:53.126002",
+ "modified_by": "Administrator",
+ "module": "Laundry",
+ "name": "Orders Control",
+ "number_cards": [
+  {
+   "label": "Refunded and Compensation Done",
+   "number_card_name": "Refunded and Compensation Done"
+  },
+  {
+   "label": "This Month failures",
+   "number_card_name": "order - This Month failures"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 7.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "All Orders",
+   "link_to": "Order",
+   "stats_filter": "{\"name\":[\"is\",\"set\"]}",
+   "type": "DocType"
+  },
+  {
+   "color": "Blue",
+   "doc_view": "List",
+   "label": "Today's",
+   "link_to": "Order",
+   "stats_filter": "{\"creation\":[\"Timespan\",\"today\"]}",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "To Deliver",
+   "link_to": "Order",
+   "stats_filter": "{\"status\":[\"in\",[\"Ready\",\"Late\",null]]}",
+   "type": "DocType"
+  },
+  {
+   "color": "Yellow",
+   "doc_view": "List",
+   "label": "Not Delivered Orders",
+   "link_to": "Order",
+   "stats_filter": "{\"status\":[\"!=\",\"Delivered\"]}",
+   "type": "DocType"
+  }
+ ],
+ "title": "Orders Control"
+}

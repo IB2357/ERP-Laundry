@@ -1,0 +1,45 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"PkrKtk2IN_\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">O Stock</span>\",\"col\":12}},{\"id\":\"zE8o7k49sH\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Ready Orders\",\"col\":6}},{\"id\":\"lNaEVC1kQX\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Late Orders\",\"col\":6}},{\"id\":\"OBKSGMd_bB\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Received Orders\",\"col\":6}},{\"id\":\"DrZ3xuRNue\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Under Processing\",\"col\":6}}]",
+ "creation": "2023-07-26 22:34:45.923139",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "tag",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "O Stock",
+ "links": [],
+ "modified": "2023-08-04 02:29:06.743234",
+ "modified_by": "Administrator",
+ "module": "Laundry",
+ "name": "O Stock",
+ "number_cards": [
+  {
+   "label": "Ready Orders",
+   "number_card_name": "Ready Orders"
+  },
+  {
+   "label": "Received Orders",
+   "number_card_name": "Received State Orders"
+  },
+  {
+   "label": "Late Orders",
+   "number_card_name": "Late Orders"
+  },
+  {
+   "label": "Under Processing",
+   "number_card_name": "Under Processing Orders"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "Orders Control",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 22.0,
+ "shortcuts": [],
+ "title": "O Stock"
+}

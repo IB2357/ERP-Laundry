@@ -113,23 +113,23 @@ app_license = "MIT"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-#	"all": [
-#		"laundry.tasks.all"
-#	],
-#	"daily": [
-#		"laundry.tasks.daily"
-#	],
-#	"hourly": [
-#		"laundry.tasks.hourly"
-#	],
-#	"weekly": [
-#		"laundry.tasks.weekly"
-#	],
-#	"monthly": [
-#		"laundry.tasks.monthly"
-#	],
-# }
+scheduler_events = {
+	# "all": [
+	# 	"laundry.tasks.all"
+	# ],
+	"daily": [
+		"laundry.scheduled_tasks.order_Late_status"
+	],
+	# "hourly": [
+	# 	"laundry.tasks.hourly"
+	# ],
+	# "weekly": [
+	# 	"laundry.tasks.weekly"
+	# ],
+	# "monthly": [
+	# 	"laundry.tasks.monthly"
+	# ],
+}
 
 # Testing
 # -------
@@ -199,3 +199,4 @@ app_license = "MIT"
 # auth_hooks = [
 #	"laundry.auth.validate"
 # ]
+

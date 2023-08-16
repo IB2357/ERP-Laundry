@@ -1,0 +1,177 @@
+{
+ "actions": [],
+ "autoname": "format:{invoice}",
+ "creation": "2023-07-21 16:47:46.683652",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "order_instructions",
+  "section_break_d53tz",
+  "customer",
+  "delivery_date",
+  "status",
+  "invoice",
+  "amended_from",
+  "column_break_skuox",
+  "items",
+  "outstanding_amount"
+ ],
+ "fields": [
+  {
+   "default": "Received",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Received\nUnder Processing\nReady\nLate\nDelivered\nFailed\nRefunded\nCompensation Done",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "invoice",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Invoice",
+   "options": "Sales Invoice",
+   "read_only": 1,
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Order",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Sales Invoice Item",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "invoice.posa_delivery_date",
+   "fieldname": "delivery_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Delivery Date",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "invoice.customer",
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "print_width": "fetch",
+   "read_only": 1
+  },
+  {
+   "fieldname": "order_instructions",
+   "fieldtype": "Text Editor",
+   "label": "Add Instructions"
+  },
+  {
+   "fieldname": "section_break_d53tz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_skuox",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "outstanding_amount",
+   "fieldtype": "Currency",
+   "is_virtual": 1,
+   "label": "Outstanding Amount"
+  }
+ ],
+ "in_create": 1,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-08-06 01:27:39.624422",
+ "modified_by": "Administrator",
+ "module": "Laundry",
+ "name": "Order",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_preview_popup": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Blue",
+   "title": "Received"
+  },
+  {
+   "color": "Light Blue",
+   "title": "Under Processing"
+  },
+  {
+   "color": "Cyan",
+   "title": "Ready"
+  },
+  {
+   "color": "Yellow",
+   "title": "Late"
+  },
+  {
+   "color": "Green",
+   "title": "Delivered"
+  },
+  {
+   "color": "Red",
+   "title": "Failed"
+  },
+  {
+   "color": "Purple",
+   "title": "Refunded"
+  },
+  {
+   "color": "Purple",
+   "title": "Compensation Done"
+  }
+ ]
+}
