@@ -135,6 +135,7 @@ frappe.ui.form.on('Order', {
 		// });
 		if (check_SR(actions.Make_Delivery.status, actions.Make_Delivery.role)) {
 			frm.add_custom_button(__('Pay & Deliver'), function () {
+				// payment
 				if (frm.doc.outstanding_amount > 0) {
 					frappe.prompt(
 						[
@@ -299,6 +300,7 @@ frappe.ui.form.on('Order', {
 						'Pay'
 					)
 				}
+				// delivery
 				else if (frm.doc.outstanding_amount === 0){
 					frappe.prompt(
 						[
