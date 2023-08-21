@@ -5,7 +5,7 @@
    "label": "Activity"
   }
  ],
- "content": "[{\"id\":\"fUbrc_emSi\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Orders Control</span>\",\"col\":12}},{\"id\":\"DvfelT3_Bs\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Activity\",\"col\":12}},{\"id\":\"oFiC8je84f\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"All Orders\",\"col\":3}},{\"id\":\"sI0Iql45Ec\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Today's\",\"col\":3}},{\"id\":\"QelE4N5d1P\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Not Delivered Orders\",\"col\":3}},{\"id\":\"Y-JqtYVDPU\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"To Deliver\",\"col\":3}},{\"id\":\"lDZXUbuDaB\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"This Month failures\",\"col\":4}},{\"id\":\"L8QVBHtnmL\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Refunded and Compensation Done\",\"col\":8}}]",
+ "content": "[{\"id\":\"fUbrc_emSi\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Orders Control</span>\",\"col\":12}},{\"id\":\"DvfelT3_Bs\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Activity\",\"col\":12}},{\"id\":\"oFiC8je84f\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"All Orders\",\"col\":3}},{\"id\":\"sI0Iql45Ec\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Today's\",\"col\":3}},{\"id\":\"UySGpJ_A1W\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Not Paid\",\"col\":3}},{\"id\":\"QelE4N5d1P\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Not Delivered Orders\",\"col\":3}},{\"id\":\"Y-JqtYVDPU\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"To Deliver\",\"col\":3}},{\"id\":\"lDZXUbuDaB\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"This Month failures\",\"col\":4}},{\"id\":\"L8QVBHtnmL\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Refunded and Compensation Done\",\"col\":8}}]",
  "creation": "2023-07-26 20:14:01.918035",
  "custom_blocks": [],
  "docstatus": 0,
@@ -17,7 +17,7 @@
  "is_hidden": 0,
  "label": "Orders Control",
  "links": [],
- "modified": "2023-08-04 02:31:53.126002",
+ "modified": "2023-08-21 03:58:38.117144",
  "modified_by": "Administrator",
  "module": "Laundry",
  "name": "Orders Control",
@@ -44,6 +44,14 @@
    "label": "All Orders",
    "link_to": "Order",
    "stats_filter": "{\"name\":[\"is\",\"set\"]}",
+   "type": "DocType"
+  },
+  {
+   "color": "Red",
+   "doc_view": "List",
+   "label": "Not Paid",
+   "link_to": "Order",
+   "stats_filter": "{\"outstanding_amount\":[\"!=\",null]}",
    "type": "DocType"
   },
   {

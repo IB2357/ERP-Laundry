@@ -98,14 +98,16 @@
   {
    "fieldname": "outstanding_amount",
    "fieldtype": "Currency",
+   "in_filter": 1,
    "is_virtual": 1,
    "label": "Outstanding Amount"
   }
  ],
+ "hide_toolbar": 1,
  "in_create": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-08-06 01:27:39.624422",
+ "modified": "2023-08-21 04:07:59.750725",
  "modified_by": "Administrator",
  "module": "Laundry",
  "name": "Order",
@@ -137,7 +139,6 @@
    "write": 1
   }
  ],
- "show_preview_popup": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [

@@ -21,6 +21,9 @@ def update_last_instructions(instructions_value,order_value=None):
         frappe.log_error(_("Failed to update field: {0}".format(str(e))))
         return 'error'
 
+
+
+
 @frappe.whitelist()
 def create_payment_entry(
     order,
@@ -35,25 +38,37 @@ def create_payment_entry(
     paid_to_account_currency,
     paid_from,
     paid_from_account_currency,
-    outstanding_amount
+    outstanding_amount,
+    check_discount = 0,
+    discount_amount = 0.0
     ):
     payment_entry = frappe.new_doc('Payment Entry')
+
+    # str -> float & int
     amount, received_amount, outstanding_amount = float(amount), float(received_amount),\
                 float(outstanding_amount)
+        # for discount values
+    check_discount, discount_amount = int(check_discount), float(discount_amount)
 
+    # validations ...
     if amount == 0 :
-        frappe.msgprint(
+        frappe.throw(
             msg = "'Received Amount' Can't be Zero!",
             title='Payment Cancelled',
         )
     elif amount > outstanding_amount :
-        frappe.msgprint(
+        frappe.throw(
             msg = "'Paid Amount' Can't be Greater then The Outstanding Amount",
             title='Payment Cancelled',
         )
+    elif (amount + discount_amount) > outstanding_amount :
+        frappe.throw(
+            msg = "'Paid Amount + Discount' Can't be Greater then The Outstanding Amount",
+            title='Discounting Failure',
+        )
     else:
 
-    # frappe.msgprint(invoice)
+    # frappe.throw(invoice)
     # doc = frappe.get_doc('O Payment Entry', ope)
 
         payment_entry.party_type = 'Customer'
@@ -69,12 +84,22 @@ def create_payment_entry(
         row.reference_doctype = 'Sales Invoice'
         row.reference_name = invoice
         row.allocated_amount = amount
-        payment_entry.append("references", row)
-
+        
+    # paid amount
         payment_entry.paid_amount = amount  
         payment_entry.mode_of_payment = mode_of_payment
 
-
+    # for Payment Entry Deduction table
+        if not(check_discount == 0):
+            row_d = frappe.new_doc('Payment Entry Deduction')
+            row_d.account = "5218 - Write Off - BI"
+            row_d.cost_center = "Main - BI"
+            row_d.amount = discount_amount
+                # in references
+            row.allocated_amount = amount + discount_amount
+# appending tables:
+            payment_entry.append("deductions", row_d)
+        payment_entry.append("references", row)
 
     # paid_to_account_currency
         payment_entry.received_amount = received_amount if (received_amount \
@@ -102,3 +127,5 @@ def create_payment_entry(
 
     return payment_entry
 
+
+##########################

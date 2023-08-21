@@ -18,6 +18,8 @@ frappe.ui.form.on('Order', {
 	},
 
 	refresh(frm) {
+		console.log('status now is : ',frm.doc.status)
+		// frm.set_value('status', 'Under Processing')
 		// frm.set_value('oa',frm.doc.outstanding_amount)
 		// // frm.set_value('outstanding_amount',frm.doc.outstanding_amount)
 		// frm.save()
@@ -139,6 +141,7 @@ frappe.ui.form.on('Order', {
 				if (frm.doc.outstanding_amount > 0) {
 					frappe.prompt(
 						[
+
 							{
 
 								// "fetch_from": "order.customer",
@@ -164,6 +167,28 @@ frappe.ui.form.on('Order', {
 								"fieldname": "section_break_1",
 								"fieldtype": "Section Break"
 							},
+							// for payment discount //////////
+							{
+								"label": __('Make Discount'),
+								"fieldname": 'check_discount',
+								"fieldtype": 'Check',
+								"default": 0
+							},
+							{
+								"fieldname": "column_break_d",
+								"fieldtype": "Column Break"
+							},
+							{
+								"label": __('Discount Amount'),
+								"fieldname": 'discount_amount',
+								"fieldtype": 'Currency',
+								"depends_on": 'eval:doc.check_discount == 1' // Show when checkbox is checked
+							},
+							{
+								"fieldname": "section_break_d",
+								"fieldtype": "Section Break",
+							},
+							//   //////////////////
 							{
 								"default": frm.doc.outstanding_amount,
 								"fieldname": "amount",
@@ -281,6 +306,11 @@ frappe.ui.form.on('Order', {
 									paid_from_account_currency: values.paid_from_account_currency,
 									outstanding_amount: values.outstanding_amount,
 
+									// for discount
+									check_discount: values.check_discount,
+									discount_amount: values.discount_amount
+
+
 									// doc: frm.doc.name,
 								},
 								callback: function (response) {
@@ -293,15 +323,15 @@ frappe.ui.form.on('Order', {
 								},
 							});
 
-							frm.refresh();
-							show_alert('Page Refreshed');
+							// frm.refresh();
+							// show_alert('Page Refreshed');
 						},
 						'Making Payment',
 						'Pay'
 					)
 				}
 				// delivery
-				else if (frm.doc.outstanding_amount === 0){
+				else if (frm.doc.outstanding_amount === 0) {
 					frappe.prompt(
 						[
 							{
@@ -314,7 +344,7 @@ frappe.ui.form.on('Order', {
 								"fieldtype": "Section Break"
 							},
 							{
-								
+
 
 								// "fetch_from": "order.customer",
 								"default": frm.doc.customer,
@@ -361,7 +391,7 @@ frappe.ui.form.on('Order', {
 								"fieldname": "section_break_2",
 								"fieldtype": "Section Break"
 							},
-							
+
 						],
 						function (values) {
 							frm.set_value('status', 'Delivered');
@@ -378,8 +408,9 @@ frappe.ui.form.on('Order', {
 				}
 			});
 		}
-		if (frm.doc.outstanding_amount > 0) {
-			frm.add_custom_button(__('instant Payment'), function () {
+		// instant Payment
+		else if (frm.doc.outstanding_amount > 0) {
+			frm.add_custom_button(__('Instant Payment'), function () {
 				frappe.prompt(
 					[
 						{
@@ -407,6 +438,28 @@ frappe.ui.form.on('Order', {
 							"fieldname": "section_break_1",
 							"fieldtype": "Section Break"
 						},
+						// for payment discount //////////
+						{
+							"label": __('Make Discount'),
+							"fieldname": 'check_discount',
+							"fieldtype": 'Check',
+							"default": 0
+						},
+						{
+							"fieldname": "column_break_d",
+							"fieldtype": "Column Break"
+						},
+						{
+							"label": __('Discount Amount'),
+							"fieldname": 'discount_amount',
+							"fieldtype": 'Currency',
+							"depends_on": 'eval:doc.check_discount == 1' // Show when checkbox is checked
+						},
+						{
+							"fieldname": "section_break_d",
+							"fieldtype": "Section Break",
+						},
+						//   //////////////////
 						{
 							"default": frm.doc.outstanding_amount,
 							"fieldname": "amount",
@@ -524,6 +577,11 @@ frappe.ui.form.on('Order', {
 								paid_from_account_currency: values.paid_from_account_currency,
 								outstanding_amount: values.outstanding_amount,
 
+								// for discount
+								check_discount: values.check_discount,
+								discount_amount: values.discount_amount
+
+
 								// doc: frm.doc.name,
 							},
 							callback: function (response) {
@@ -536,8 +594,8 @@ frappe.ui.form.on('Order', {
 							},
 						});
 
-						frm.refresh();
-						show_alert('Page Refreshed');
+						// frm.refresh();
+						// show_alert('Page Refreshed');
 					},
 					'Making Payment',
 					'Pay'
