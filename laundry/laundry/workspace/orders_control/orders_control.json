@@ -17,7 +17,7 @@
  "is_hidden": 0,
  "label": "Orders Control",
  "links": [],
- "modified": "2023-08-21 03:58:38.117144",
+ "modified": "2023-10-03 09:45:09.784607",
  "modified_by": "Administrator",
  "module": "Laundry",
  "name": "Orders Control",
@@ -36,7 +36,7 @@
  "public": 1,
  "quick_lists": [],
  "roles": [],
- "sequence_id": 7.0,
+ "sequence_id": 8.0,
  "shortcuts": [
   {
    "color": "Grey",
